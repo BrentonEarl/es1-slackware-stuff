@@ -28,7 +28,7 @@
 APP=ruby
 VERSION=$(echo $APP-*.tar.?z* | rev | cut -f 3- -d . | cut -f 1 -d - | rev)
 BUILD=${BUILD:-1}
-TAG=${TAG:-_BlE}
+TAG=${TAG:-_SBo}
 
 # Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then
@@ -40,7 +40,7 @@ if [ -z "$ARCH" ]; then
 	esac
 fi
 
-NUMJOBS=${NUMJOBS:-" -j7 "}
+NUMJOBS=${NUMJOBS:-" -j4 "}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/build}

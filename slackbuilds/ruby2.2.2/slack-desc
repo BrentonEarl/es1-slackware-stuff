@@ -6,14 +6,14 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
      |-----handy-ruler------------------------------------------------------|
-ruby2: ruby2 (Interpreted object-oriented scripting language)
-ruby2:
-ruby2: Ruby is an interpreted scripting language for quick and easy
-ruby2: object-oriented programming.  It has many features to process text
-ruby2: files and to do system management tasks (as in Perl).  It is simple,
-ruby2: straight-forward, and extensible.
-ruby2:
-ruby2: Visit the Ruby project online at http://www.ruby-lang.org/
-ruby2:
-ruby2:
-ruby2:
+ruby: ruby (Interpreted object-oriented scripting language)
+ruby:
+ruby: Ruby is an interpreted scripting language for quick and easy
+ruby: object-oriented programming.  It has many features to process text
+ruby: files and to do system management tasks (as in Perl).  It is simple,
+ruby: straight-forward, and extensible.
+ruby:
+ruby: Visit the Ruby project online at http://www.ruby-lang.org/
+ruby:
+ruby:
+ruby:
