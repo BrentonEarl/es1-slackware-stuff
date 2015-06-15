@@ -1,8 +1,8 @@
-# Slackware Related Things
+## My Slackware Things
 
-Includes:
+__Includes:__
 
 *  Shell Scripts
 *  Slackware Packages
 *  Slackbuilds
-*  Screen shots
+*  Screenshots
