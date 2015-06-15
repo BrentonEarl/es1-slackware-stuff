@@ -1,0 +1,12 @@
+============
+Why ruby2?
+============
+
+This build script will install a newer version of ruby alongside
+the provided official Slackware ruby package.
+
+This Slackbuild will likely disappear or no longer be updated
+once Slackware developers update ruby1.9.3 to a more recent version
+of ruby.
+
+<Created at Jun 13 22:20:15 MDT 2015>
