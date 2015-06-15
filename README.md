@@ -3,6 +3,5 @@
 __Includes:__
 
 *  Shell Scripts
-*  Slackware Packages
 *  Slackbuilds
 *  Screenshots
