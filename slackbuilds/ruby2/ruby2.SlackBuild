@@ -1,4 +1,4 @@
-#!/bin/sh -e 
+#!/bin/sh
 
 # Copyright 2015 Brenton Earl <brent@exitstatusone.com>, Tooele, UT, USA
 # All rights reserved.
@@ -29,70 +29,69 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-APP=ruby2
+PRGNAM=ruby2
 SRCNAM=ruby
-VERSION=$(echo $SRCNAM-*.tar.?z* | rev | cut -f 3- -d . | cut -f 1 -d - | rev)
+VERSION=${VERSION:-2.2.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
 if [ -z "$ARCH" ]; then
-	case "$( uname -m )" in
-		i?86) export ARCH=i486 ;;
-		arm*) export ARCH=arm ;;
-		*) export ARCH=$( uname -m ) ;;
-	esac
+  case "$( uname -m )" in
+    i?86) ARCH=i486 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
 fi
-
-NUMJOBS=${NUMJOBS:-" -j4 "}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
-PKG=$TMP/package-$APP
+PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
 if [ "$ARCH" = "i486" ]; then
-	SLKCFLAGS="-march=i486 -mtune=i686 -O3 -fno-strict-aliasing"
-	OPTFLAGS=-O3
-	LIBDIRSUFFIX=""
+ SLKCFLAGS="-march=i486 -mtune=i686 -O3 -fno-strict-aliasing"
+ OPTFLAGS=-O3
+ LIBDIRSUFFIX=""
 elif [ "$ARCH" = "s390" ]; then
-	SLKCFLAGS="-O3 -fno-strict-aliasing"
-	OPTFLAGS=-O3
-	LIBDIRSUFFIX=""
+ SLKCFLAGS="-O3 -fno-strict-aliasing"
+ OPTFLAGS=-O3
+ LIBDIRSUFFIX=""
 elif [ "$ARCH" = "x86_64" ]; then
-	SLKCFLAGS="-O3 -fPIC -fno-strict-aliasing"
-	OPTFLAGS=-O3
-	LIBDIRSUFFIX="64"
+ SLKCFLAGS="-O3 -fPIC -fno-strict-aliasing"
+ OPTFLAGS=-O3
+ LIBDIRSUFFIX="64"
 fi
 
+set -e
+
 rm -rf $PKG
-mkdir -p $TMP $PKG
+mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM-$VERSION
-tar xvf $CWD/$SRCNAM-$VERSION.tar.?z* || exit 1
-cd $SRCNAM-$VERSION || exit 1
-
+tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
+cd $SRCNAM-$VERSION
 chown -R root:root .
 find -L . \
-	\( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
-	-o -perm 511 \) -exec chmod 755 {} \; -o \
-	\( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
-	-o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 CFLAGS="$SLKCFLAGS" \
-	optflags=$OPTFLAGS \
-	./configure \
-	--prefix=/usr \
-	--libdir=/usr/lib${LIBDIRSUFFIX} \
-	--mandir=/usr/man \
-	--datadir=/usr/share \
-	--docdir=/usr/doc/$APP-$VERSION \
-	--enable-shared \
-	--enable-pthread \
-	--disable-install-capi \
-	--build=$ARCH-slackware-linux
+optflags=$OPTFLAGS \
+./configure \
+  --prefix=/usr \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --mandir=/usr/man \
+  --datadir=/usr/share \
+  --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --enable-shared \
+  --enable-pthread \
+  --disable-install-capi \
+  --build=$ARCH-slackware-linux
 
-make $NUMJOBS || make || exit 1
-make install DESTDIR=$PKG || exit 1
+make
+make install DESTDIR=$PKG
 
 # Maintaining compatibility with another version of Ruby that is already installed
 # Remove this block if you want to just keep this version
@@ -106,32 +105,30 @@ make install DESTDIR=$PKG || exit 1
 	mv ri ri2
 )
 
-mkdir -p $PKG/usr/doc/$APP-$VERSION
-cp -a \
-	BSDL CONTRIBUTING* COPYING* *GPL* ChangeLog LEGAL NEWS README* \
-	$PKG/usr/doc/$APP-$VERSION
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a BSDL CONTRIBUTING* COPYING* *GPL* ChangeLog LEGAL NEWS README* \
+      $PKG/usr/doc/$PRGNAM-$VERSION
 
-find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
-	| cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-find $PKG | xargs file | grep -e "current ar archive" \
-	| cut -f 1 -d : | xargs strip --strip-debug 2> /dev/null
+# Remove static file so it will not overwrite Slackware's ruby
+rm -f $PKG/usr/lib${LIBDIRSUFFIX}/libruby-static.a
 
-if [ -d $PKG/usr/man ]; then
-	( cd $PKG/usr/man
-	for manpagedir in $(find . -type d -name "man*") ; do
-		( cd $manpagedir
-		for eachpage in $( find . -type l -maxdepth 1) ; do
-			ln -s $( readlink $eachpage ).gz $eachpage.gz
-			rm $eachpage
-		done
-		gzip -9 *.?
-		)
-	done
-	)
-fi
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+# Rename man files so it will not overwrite Slackware's ruby man files
+cd $PKG/usr/man/man1
+mv erb.1 erb2.1
+mv irb.1 irb2.1
+mv rake.1 rake2.1
+mv ri.1 ri2.1
+mv ruby.1 ruby2.1
+
+cd $TMP/$SRCNAM-$VERSION
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$APP-$(echo $VERSION | tr - _)-$ARCH-$BUILD$TAG.txz
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
