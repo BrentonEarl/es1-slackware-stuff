@@ -24,6 +24,7 @@ submitted/
 *.zip
 *.bz2
 *.tgz
+*.xz
 
 # Logs and databases #
 *.log
