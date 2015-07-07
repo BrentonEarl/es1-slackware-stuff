@@ -2,7 +2,7 @@
 
 # Slackware build script for xfce4-wavelan-plugin
 #
-# Copyright 2015 Brenton Earl Tooele, UT, USA
+# Copyright 2015 Brenton Earl <brent@exitstatusone.com>, Tooele, UT, USA
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -22,7 +22,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-APP=xfce4-wavelan-plugin
+PRGNAM=xfce4-wavelan-plugin
 VERSION=${VERSION:-0.5.12}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -37,7 +37,7 @@ fi
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
-PKG=$TMP/package-$APP
+PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
 if [ "$ARCH" = "i486" ]; then
@@ -57,9 +57,9 @@ fi
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $APP-$VERSION
-tar xvf $CWD/$APP-$VERSION.tar.bz2
-cd $APP-$VERSION
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2
+cd $PRGNAM-$VERSION
 chown -R root:root .
 find . \
 	\( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -75,7 +75,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --sysconfdir=/etc \
   --localstatedir=/var \
   --mandir=/usr/man \
-  --docdir=/usr/doc/$APP-$VERSION \
+  --docdir=/usr/doc/$PRGNAM-$VERSION \
   --build=$ARCH-slackware-linux
 
 make 
@@ -84,13 +84,13 @@ make install DESTDIR=$PKG
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-mkdir -p $PKG/usr/doc/$APP-$VERSION
-cp -a AUTHORS ChangeLog NEWS THANKS COPYING README $PKG/usr/doc/$APP-$VERSION
-cat $CWD/$APP.Slackbuild > $PKG/usr/doc/$APP-$VERSION/$APP.Slackbuild
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS ChangeLog NEWS THANKS COPYING README $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$APP-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
