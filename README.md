@@ -1,7 +1,6 @@
 ## My Slackware Things
 
-__Includes:__
+_This is where I upload my official SlackBuilds before commiting them to
+Slackbuilds.org_
 
-*  Shell Scripts
-*  Slackbuilds
-*  Screenshots
+There are also a few miscellaneous shell scripts, dotfiles, and screenshots.
