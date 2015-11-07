@@ -1,4 +1,4 @@
-PRGNAM="impacket"
+PRGNAM="Impacket"
 VERSION="0.9.13"
 HOMEPAGE="http://www.coresecurity.com/corelabs-research/open-source-tools/impacket"
 DOWNLOAD="https://pypi.python.org/packages/source/i/impacket/impacket-0.9.13.tar.gz"
