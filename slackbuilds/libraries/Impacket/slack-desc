@@ -6,14 +6,14 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
         |-----handy-ruler------------------------------------------------------|
-impacket: Impacket (Python access to network packets)
-impacket:
-impacket: Impacket is a collection of Python classes focused on providing access
-impacket: to network packets. Impacket allows Python developers to craft and
-impacket: decode network packets in simple and consistent manner. It includes
-impacket: support for low-level protocols such as IP, UDP and TCP, as well as
-impacket: higher-level protocols such as NMB and SMB.
-impacket:
-impacket:
-impacket:
-impacket:
+Impacket: Impacket (Python access to network packets)
+Impacket:
+Impacket: Impacket is a collection of Python classes focused on providing access
+Impacket: to network packets. Impacket allows Python developers to craft and
+Impacket: decode network packets in simple and consistent manner. It includes
+Impacket: support for low-level protocols such as IP, UDP and TCP, as well as
+Impacket: higher-level protocols such as NMB and SMB.
+Impacket:
+Impacket:
+Impacket:
+Impacket:
