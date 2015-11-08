@@ -1,4 +1,4 @@
 #!/bin/sh
-( cd /opt/sqlmap
+( cd /opt/sqlmap-0.9/
   ./sqlmap.py $@
 )
