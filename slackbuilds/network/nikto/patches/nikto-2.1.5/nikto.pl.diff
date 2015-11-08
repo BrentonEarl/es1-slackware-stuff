@@ -1,3 +1,6 @@
+
+Fix nikto.pl paths to use libwhisker2 from SBo.
+
 --- nikto-2.1.5.orig/nikto.pl	2012-09-10 02:22:36.000000000 -0600
 +++ nikto-2.1.5/nikto.pl	2015-11-07 22:14:55.380915446 -0700
 @@ -56,14 +56,14 @@

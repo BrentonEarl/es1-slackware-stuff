@@ -67,7 +67,6 @@ cd $PRGNAM-$VERSION
 chown -R root:root .
 
 # Fix nikto.pl paths to use libwhisker2 from SBo.
-# Disable SSL Engine due to a bug
 patch -p1 --verbose < $CWD/patches/nikto-2.1.5/nikto.pl.diff
 
 # Set the correct EXECDIR for nikto based on $ARCH
