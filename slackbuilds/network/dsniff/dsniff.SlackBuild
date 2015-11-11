@@ -76,7 +76,7 @@ find -L . \
 # This patch adds support for libnet 1.1.x, it's heavily based on Gentoo ebuild
 # which, in turn, is heavily based on Debian patch set. And I added a couple
 # of bits myself in the mix too... - sid77
-patch -p1 < $CWD/libnet11$LIBDIRSUFFIX.patch
+patch -p1 < $CWD/patches/libnet11$LIBDIRSUFFIX.patch
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
