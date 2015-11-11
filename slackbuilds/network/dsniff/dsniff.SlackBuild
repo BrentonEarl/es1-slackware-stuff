@@ -79,7 +79,6 @@ find -L . \
 patch -p1 < $CWD/patches/libnet11$LIBDIRSUFFIX.patch
 
 patch -p1 < $CWD/patches/arpspoof-r-switch.patch
-patch -p1 < $CWD/patches/arpspoof-multiple-targets.patch
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
