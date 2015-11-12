@@ -1,6 +1,6 @@
 PRGNAM="pybloomfiltermmap"
 VERSION="0.3.14"
-HOMEPAGE="https://github.com/axiak/pybloomfiltermmap"
+HOMEPAGE="https://axiak.github.io/pybloomfiltermmap/"
 DOWNLOAD="https://pypi.python.org/packages/source/p/pybloomfiltermmap/pybloomfiltermmap-0.3.14.tar.gz"
 MD5SUM="9c711cf6efca7438fa9dd1829dfa9d05"
 DOWNLOAD_x86_64=""
