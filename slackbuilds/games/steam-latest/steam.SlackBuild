@@ -39,7 +39,7 @@ TAG=${TAG:-_SBo}
 
 
 
-HASH=$(md5sum steam-latest.tar.gz | cut -f 1 -d " ") 
+HASH=$(md5sum steam-latest.tar.gz | cut -f 1 -d " ")
 sed -i 's/^MD5SUM.*/MD5SUM=\"'"$HASH"'\"/' steam.info
 
 
