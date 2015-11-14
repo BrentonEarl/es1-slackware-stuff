@@ -4,7 +4,3 @@ Usage:
 
 use File::Slurp::Tiny 'read_file';
 my $content = read_file($filename);
-
-Web Site:
-
-http://search.cpan.org/dist/File-Slurp-Tiny/

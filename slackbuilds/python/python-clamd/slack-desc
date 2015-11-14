@@ -8,9 +8,9 @@
        |-----handy-ruler------------------------------------------------------|
 python-clamd: python-clamd (python interface to Clamav)
 python-clamd:
-python-clamd: clamd is a portable Python module to use the ClamAV 
-python-clamd: anti-virus engine on Windows, Linux, MacOSX and other 
-python-clamd: platforms. It requires a running instance of the 
+python-clamd: clamd is a portable Python module to use the ClamAV
+python-clamd: anti-virus engine on Windows, Linux, MacOSX and other
+python-clamd: platforms. It requires a running instance of the
 python-clamd: clamd daemon.
 python-clamd:
 python-clamd:

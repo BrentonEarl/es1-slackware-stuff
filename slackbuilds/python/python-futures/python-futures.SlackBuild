@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Slackware build script for python-futures 
+# Slackware build script for python-futures
 
 # Copyright 2015 Brenton Earl <brent@exitstatusone.com>
 # All rights reserved.
@@ -55,7 +55,7 @@ else
   LIBDIRSUFFIX=""
 fi
 
-set -e 
+set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

@@ -5,15 +5,15 @@
 # You must make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-       |-----handy-ruler------------------------------------------------------|
+               |-----handy-ruler------------------------------------------------------|
 python-pdfminer: python-pdfminer (PDF parser and analyzer)
 python-pdfminer:
-python-pdfminer: PDFMiner is a tool for extracting information from PDF 
-python-pdfminer: documents. It focuses entirely on getting and analyzing text 
-python-pdfminer: data. PDFMiner can obtain the location of text in a page, 
-python-pdfminer: and other information like fonts or lines. It includes a 
-python-pdfminer: PDF converter that can transform PDF files into several 
+python-pdfminer: PDFMiner is a tool for extracting information from PDF
+python-pdfminer: documents. It focuses entirely on getting and analyzing text
+python-pdfminer: data. PDFMiner can obtain the location of text in a page,
+python-pdfminer: and other information like fonts or lines. It includes a
+python-pdfminer: PDF converter that can transform PDF files into several
 python-pdfminer: text formats. It also includes an extensible PDF parser.
 python-pdfminer:
-python-pdfminer: Home page: https://euske.github.io/pdfminer/index.html 
+python-pdfminer: Home page: https://euske.github.io/pdfminer/index.html
 python-pdfminer:
