@@ -45,7 +45,7 @@ mkdir -p $TMP $PKG $OUTPUT
 mkdir -p $PKG/opt
 tar xvf $CWD/$VERSION.tar.gz -C $PKG/opt # Install to /opt
 
-# Rename install dir to sane name
+# Rename install dir to same name
 ( cd $PKG/opt
   mv $PRGNAM-$VERSION $PRGNAM
 	ln -sf $PRGNAM $PRGNAM-$VERSION
