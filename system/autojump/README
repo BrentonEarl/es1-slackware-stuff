@@ -4,7 +4,7 @@ command line. The jumpstat command shows you the current contents
 of the database. You need to work a little bit before the database
 becomes usable. Autojump will listen and rank your 'cd' commands by
 frequency. Once your database is reasonably complete, you can "jump"
-to a commonly "cd"ed directory.  It supports the bash, zsh, and 
+to a commonly "cd"ed directory.  It supports the bash, zsh, and
 tcsh shells.
 
 Installation
@@ -22,6 +22,6 @@ $ cd /home
 $ cd /var
 $ j tmp
 
-You should be dropped back into the /tmp directory.  You can activate 
-autojump for other shells by changing the sourced file extension to 
+You should be dropped back into the /tmp directory.  You can activate
+autojump for other shells by changing the sourced file extension to
 a supported shell name.

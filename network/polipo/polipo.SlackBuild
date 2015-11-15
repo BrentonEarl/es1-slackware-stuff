@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Slackware build script for Polipo
-#
+
 # Copyright 2015 Brenton Earl <brent@exitstatusone.com>
 # All rights reserved.
 #
@@ -70,7 +70,7 @@ tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM-$PRGNAM-$VERSION
 
 # Fix Makefile
-cat $CWD/makefile.diff | patch -p1 --verbose
+patch -p1 < $CWD/makefile.diff
 
 chown -R root:root .
 find -L . \
@@ -85,20 +85,19 @@ make install DESTDIR=$PKG
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-( cd $PKG/usr/man
-  find . -type f -exec gzip -9 {} \;
-  for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-)
-
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a $DOCS $PKG/usr/doc/$PRGNAM-$VERSION
-cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+find $PKG/usr/man -type f -exec gzip -9 {} \; || true
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done || true
 
 rm -f $PKG/usr/info/dir
 gzip -9 $PKG/usr/info/*.info*
 
 mkdir -p $PKG/etc/rc.d
 cat $CWD/rc.polipo > $PKG/etc/rc.d/rc.polipo.new
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a $DOCS $PKG/usr/doc/$PRGNAM-$VERSION
+ln -s /usr/share/polipo/www $PKG/usr/doc/$PRGNAM-$VERSION/html
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
