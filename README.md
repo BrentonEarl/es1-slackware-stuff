@@ -10,7 +10,6 @@ Slackware.
 #### Branches
 
 *  _master_ is where I track SlackBuilds I maintain
-*  _master_ also contains the depenencies for SlackBuilds I maintain
 *  _sbo_ is where I track the official SlackBuilds.org repository
 *  Any other branches are used to test SlackBuilds soon to be updated
 
