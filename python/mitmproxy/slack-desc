@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+         |-----handy-ruler------------------------------------------------------|
+mitmproxy: mitmproxy (SSL-Capable MITM HTTP Proxy)
+mitmproxy:
+mitmproxy: An interactive, SSL-capable, man-in-the-middle HTTP proxy for
+mitmproxy: penetration testers and software developers.
+mitmproxy:
+mitmproxy: Home page:  https://mitmproxy.org/
+mitmproxy:
+mitmproxy:
+mitmproxy:
+mitmproxy:
+mitmproxy:
