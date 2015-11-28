@@ -9,6 +9,3 @@ It allows Python clients running on any operating system to provide NTLM
 authentication to a supporting Windows server.
 
 Usage and Examples located in /usr/doc/python-ntlm-$VERSION/README.md.
-
-README.md also seen online here:
-https://github.com/mullender/python-ntlm/blob/master/README.md

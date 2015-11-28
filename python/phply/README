@@ -13,4 +13,3 @@ Usage: php2python.py < input.php > output.py
 
 php2jinja.py - Converts PHP to Jinja2 templates (experimental)
 Usage: php2jinja.py < input.php > output.html
-

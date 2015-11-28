@@ -10,10 +10,10 @@ PDFMiner comes with two handy tools: pdf2txt.py and dumppdf.py.
 
 pdf2txt.py
 
-pdf2txt.py extracts text contents from a PDF file.  It cannot recognize
-text drawn as images.  It also extracts locations, font names/sizes,
-writing direction.  It requires a password for password protected PDF
-documents.  You cannot extract any text from a PDF document which does
+pdf2txt.py extracts text contents from a PDF file.  It cannot recognize 
+text drawn as images.  It also extracts locations, font names/sizes, 
+writing direction.  It requires a password for password protected PDF 
+documents.  You cannot extract any text from a PDF document which does 
 not have extraction permission.
 
 dumppdf.py

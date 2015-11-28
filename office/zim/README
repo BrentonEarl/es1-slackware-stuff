@@ -5,8 +5,8 @@ plain text for simplicity and transparency.
 Among other uses, zim can be effective for brainstorming, note-taking,
 and making task lists.
 
-Zim can optionally use pyxdg and xdg-utils
-(http://portland.freedesktop.org/download/) for additional
+Zim can optionally use pyxdg and xdg-utils 
+(http://portland.freedesktop.org/download/) for additional 
 freedesktop.org standard support
 
 By default, zim enables the version control plugin, which can
