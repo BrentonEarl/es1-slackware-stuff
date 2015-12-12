@@ -35,12 +35,13 @@ Directions assume you are running an en_US locale.
 For system wide configuration you need to edit /etc/profile.d/lang.sh.
 Change the LANG variable to read:
 
-export LANG=en_US.UTF-8
+export LANG=en_US.utf8
 
 For a per user configuration you need to add the LANG variable to
-~/.profile in each user's home directory:
+the configuration of the active shell in each user's home directory.
+For the bash shell you would need to edit ~/.bash_profile and add:
 
-LANG=en_US.UTF-8
+LANG=en_US.utf8
 
 Once the LANG environment variable has been added to your desired
 configuration file, you must log out and log back into your system. All
